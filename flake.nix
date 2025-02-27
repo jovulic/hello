@@ -1,9 +1,10 @@
 {
-  description = "A collection of hello world nix flakes built to practice packaging with nix.";
+  description = "A collection of hello world nix flakes.";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
     flake-utils.url = "github:numtide/flake-utils";
+    go.url = "path:./go";
   };
 
   outputs =
@@ -14,15 +15,24 @@
         pkgs = import inputs.nixpkgs {
           inherit system;
         };
+        lib = pkgs.lib;
       in
       {
-        devShells.default = pkgs.mkShell {
-          packages = [
-            pkgs.git
-            pkgs.bash
-          ];
-          shellHook = '''';
-        };
+        devShells.default =
+          let
+            getPackages = target: target.outputs.devShells.${system}.default.nativeBuildInputs;
+            getShellHook = target: target.outputs.devShells.${system}.default.shellHook;
+          in
+          pkgs.mkShell {
+            packages = lib.lists.unique (
+              [
+                pkgs.git
+                pkgs.bash
+              ]
+              ++ (getPackages inputs.go)
+            );
+            shellHook = '''' + (getShellHook inputs.go);
+          };
       }
     );
 }
