@@ -21,7 +21,6 @@
         devShells.default =
           let
             getPackages = target: target.outputs.devShells.${system}.default.nativeBuildInputs;
-            getShellHook = target: target.outputs.devShells.${system}.default.shellHook;
           in
           pkgs.mkShell {
             packages = lib.lists.unique (
@@ -31,7 +30,6 @@
               ]
               ++ (getPackages inputs.go)
             );
-            shellHook = '''' + (getShellHook inputs.go);
           };
       }
     );
