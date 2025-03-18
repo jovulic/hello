@@ -4,7 +4,10 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
     flake-utils.url = "github:numtide/flake-utils";
-    go.url = "path:./go";
+    go = {
+      url = "./go";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
