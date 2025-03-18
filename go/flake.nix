@@ -21,7 +21,15 @@
             pkgs.git
             pkgs.bash
           ];
-          shellHook = '''';
+        };
+        packages.default = pkgs.buildGoModule {
+          pname = "hello-go";
+          version = "1.0.0";
+          src = ./.;
+          vendorHash = null;
+          postInstall = ''
+            mv $out/bin/go $out/bin/hello-go
+          '';
         };
       }
     );
