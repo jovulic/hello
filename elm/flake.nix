@@ -19,7 +19,7 @@
             pkgs.elmPackages.elm
           ];
         };
-        defaultPackage = pkgs.stdenv.mkDerivation {
+        packages.default = pkgs.stdenv.mkDerivation {
           name = "hello-elm";
           src = ./.;
           outputs = [ "out" ];
