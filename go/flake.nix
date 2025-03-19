@@ -11,9 +11,7 @@
     inputs.flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import inputs.nixpkgs {
-          inherit system;
-        };
+        pkgs = import inputs.nixpkgs { inherit system; };
       in
       {
         devShells.default = pkgs.mkShell {
