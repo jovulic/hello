@@ -14,7 +14,7 @@
         pkgs = import inputs.nixpkgs { inherit system; };
       in
       {
-        devShell = pkgs.mkShell {
+        devShells.default = pkgs.mkShell {
           packages = [
             pkgs.elmPackages.elm
           ];
