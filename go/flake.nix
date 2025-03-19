@@ -1,5 +1,5 @@
 {
-  description = "A hello world with go.";
+  description = "A hello world with Go.";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
