@@ -8,6 +8,10 @@
       url = "./go";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    elm = {
+      url = "./elm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -32,6 +36,7 @@
                 pkgs.bash
               ]
               ++ (getPackages inputs.go)
+              ++ (getPackages inputs.elm)
             );
           };
       }
