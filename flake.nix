@@ -12,6 +12,10 @@
       url = "./elm";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    haskell = {
+      url = "./haskell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -37,6 +41,7 @@
               ]
               ++ (getPackages inputs.go)
               ++ (getPackages inputs.elm)
+              ++ (getPackages inputs.haskell)
             );
           };
       }
