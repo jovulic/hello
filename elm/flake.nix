@@ -20,7 +20,8 @@
           ];
         };
         packages.default = pkgs.stdenv.mkDerivation {
-          name = "hello-elm";
+          pname = "hello-elm";
+          version = "1.0.0";
           src = ./.;
           outputs = [ "out" ];
           buildInputs = with pkgs; [
