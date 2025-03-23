@@ -1,0 +1,7 @@
+[project]
+name = "hello-python"
+version = "1.0.0"
+description = "A hello world with Python."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
