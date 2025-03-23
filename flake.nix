@@ -4,16 +4,28 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
     flake-utils.url = "github:numtide/flake-utils";
-    go = {
-      url = "./go";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     elm = {
       url = "./elm";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    go = {
+      url = "./go";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     haskell = {
       url = "./haskell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nodejs = {
+      url = "./nodejs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    python = {
+      url = "./python";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    rust = {
+      url = "./rust";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -39,9 +51,12 @@
                 pkgs.git
                 pkgs.bash
               ]
-              ++ (getPackages inputs.go)
               ++ (getPackages inputs.elm)
+              ++ (getPackages inputs.go)
               ++ (getPackages inputs.haskell)
+              ++ (getPackages inputs.nodejs)
+              ++ (getPackages inputs.python)
+              ++ (getPackages inputs.rust)
             );
           };
       }
