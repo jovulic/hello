@@ -1,0 +1,22 @@
+{
+  "name": "hello-nodejs",
+  "version": "1.0.0",
+  "description": "A hello world with Nodejs (Typescript).",
+  "main": "src/main.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jovulic/hello.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jovulic/hello/issues"
+  },
+  "homepage": "https://github.com/jovulic/hello#readme"
+}
