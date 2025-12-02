@@ -2,7 +2,7 @@
   description = "A collection of hello world nix flakes.";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.05";
+    nixpkgs.url = "nixpkgs/nixos-25.11";
     flake-utils.url = "github:numtide/flake-utils";
     elm = {
       url = "./elm";
