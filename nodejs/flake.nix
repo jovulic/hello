@@ -17,7 +17,6 @@
         devShells.default = pkgs.mkShell {
           packages = [
             pkgs.nodejs
-            pkgs.nodePackages.npm
           ];
         };
         packages.default = pkgs.buildNpmPackage {
